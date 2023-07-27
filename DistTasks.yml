@@ -171,8 +171,8 @@ tasks:
       #    https://groups.google.com/g/golang-codereviews/c/yzN80xxwu2E
       #
       # Until there is a fix released we must use a recent gcc for Linux_ARMv6 build, so for this
-      # build we select the debian10 based container.
-      CONTAINER_TAG: "{{.GO_VERSION}}-armel-debian10"
+      # build we select the debian12 based container.
+      CONTAINER_TAG: "{{.GO_VERSION}}-armel-debian12"
       PACKAGE_PLATFORM: "Linux_ARMv6"
       PACKAGE_NAME: "{{.PROJECT_NAME}}_{{.VERSION}}_{{.PACKAGE_PLATFORM}}.tar.gz"
 
@@ -225,9 +225,9 @@ tasks:
       # The reason seems that go 1.16.x use a macos API which is available since 10.12
       #    https://github.com/techknowlogick/xgo/issues/100#issuecomment-780894190
       #
-      # To compile it we need an SDK >=10.12 so we use the debian10 based container that
+      # To compile it we need an SDK >=10.12 so we use the debian12 based container that
       # has the SDK 10.14 installed.
-      CONTAINER_TAG: "{{.GO_VERSION}}-darwin-debian10"
+      CONTAINER_TAG: "{{.GO_VERSION}}-darwin-debian12"
       PACKAGE_PLATFORM: "macOS_64bit"
       PACKAGE_NAME: "{{.PROJECT_NAME}}_{{.VERSION}}_{{.PACKAGE_PLATFORM}}.tar.gz"
 
@@ -248,6 +248,6 @@ tasks:
       PLATFORM_DIR: "{{.PROJECT_NAME}}_osx_darwin_arm64"
       BUILD_COMMAND: "go build -o {{.DIST_DIR}}/{{.PLATFORM_DIR}}/{{.PROJECT_NAME}} {{.LDFLAGS}}"
       BUILD_PLATFORM: "darwin/arm64"
-      CONTAINER_TAG: "{{.GO_VERSION}}-darwin-arm64-debian10"
+      CONTAINER_TAG: "{{.GO_VERSION}}-darwin-arm64-debian12"
       PACKAGE_PLATFORM: "macOS_ARM64"
       PACKAGE_NAME: "{{.PROJECT_NAME}}_{{.VERSION}}_{{.PACKAGE_PLATFORM}}.tar.gz"
